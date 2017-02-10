@@ -60,46 +60,7 @@
                             
                         <form class="form-horizontal">
   
-                        <div class="form-group">
-                          <label for="inputPassword3" class="col-sm-2 control-label">Seleccione: </label>
-                          <div class="col-sm-8">
-                                <select class="selectpicker col-sm-12" multiple data-actions-box="true">    
-                                    <optgroup label="OFICIALES" >
-                                        <option>GRAL DIV</option>
-                                        <option>GRAL BRIG</option>
-                                        <option>CRL</option>
-                                        <option>TTE CRL</option>
-                                        <option>MY</option>
-                                        <option>CAP</option>
-                                        <option>TTE</option>
-                                        <option>SUB TTE</option>
-                                    </optgroup>
-                                    <optgroup label="TCOS/SSOO" >
-                                        <option>TCO JEF SUP</option>
-                                        <option>TCO JEF</option>
-                                        <option>TCO 1RA</option>
-                                        <option>TCO 2DA</option>
-                                        <option>TCO 3RA</option>
-                                        <option>SO1</option>
-                                        <option>SO2</option>
-                                        <option>SO3</option>
-                                    </optgroup>
-                                </select>
-                            </div>
-                        </div>
-   
-                        </form>
-                          
-                        </div>
-                        <div class="panel-footer">
-                            Panel Footer
-                        </div>
-                    </div>
-                 </div>
-            </div>
-            
-            
-            <div class="btn-group" data-toggle="buttons">
+                        <div class="btn-group" data-toggle="buttons">
     <label class="btn btn-primary active" disabled >
         <input type="checkbox" autocomplete="off" checked id="DNI"> DNI
     </label>
@@ -121,10 +82,7 @@
     <label class="btn btn-primary">
         <input type="checkbox" autocomplete="off" id="SITU"> SITUACION ADTMVA
     </label>
-</div>
-<div class="btn-group" data-toggle="buttons">
-
-    <label class="btn btn-primary">
+     <label class="btn btn-primary">
         <input type="checkbox" autocomplete="off" id="NUCLEO"> NUCLEO
     </label>
     <label class="btn btn-primary">
@@ -141,9 +99,22 @@
     </label>
     <label class="btn btn-primary">
         <input type="checkbox" autocomplete="off" id="ANTIGUEDAD"> ANTIGUEDAD
-    </label>
-
+    </label>                        
 </div>
+   
+                        </form>
+                          
+                        </div>
+                        <div class="panel-footer">
+                            Panel Footer
+                        </div>
+                    </div>
+                 </div>
+            </div>
+            
+            
+            
+
             
             
             <div class="row">
@@ -155,9 +126,18 @@
                         <div class="panel-body">
                             
                         <form class="form-horizontal">
-  
                         <div class="form-group">
-                          <label for="inputPassword3" class="col-sm-2 control-label">Seleccione: </label>
+                        <label for="inputPassword3" class="col-sm-2 control-label">Tipo Persona: </label>
+                        <div class="col-sm-8">
+                        <select class="selectpicker show-tick col-sm-12" multiple data-actions-box="true">
+                        <option>OFICIALES</option>
+                        <option>TCO/SSOO</option>
+                        </select>
+                        </div>  
+                        </div>   
+                            
+                        <div class="form-group">
+                          <label for="inputPassword3" class="col-sm-2 control-label">Grado: </label>
                           <div class="col-sm-8">
                                 <select class="selectpicker col-sm-12" multiple data-actions-box="true">    
                                     <optgroup label="OFICIALES" >
@@ -184,6 +164,34 @@
                             </div>
                         </div>
    
+                            <div class="form-group">
+                          <label for="inputPassword3" class="col-sm-2 control-label">Arma: </label>
+                          <div class="col-sm-8">
+                                <select class="selectpicker col-sm-12" multiple data-actions-box="true">    
+                                    <optgroup label="OFICIALES" >
+                                        <option>GRAL DIV</option>
+                                        <option>GRAL BRIG</option>
+                                        <option>CRL</option>
+                                        <option>TTE CRL</option>
+                                        <option>MY</option>
+                                        <option>CAP</option>
+                                        <option>TTE</option>
+                                        <option>SUB TTE</option>
+                                    </optgroup>
+                                    <optgroup label="TCOS/SSOO" >
+                                        <option>TCO JEF SUP</option>
+                                        <option>TCO JEF</option>
+                                        <option>TCO 1RA</option>
+                                        <option>TCO 2DA</option>
+                                        <option>TCO 3RA</option>
+                                        <option>SO1</option>
+                                        <option>SO2</option>
+                                        <option>SO3</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                            
                         </form>
                           
                         </div>
@@ -195,7 +203,9 @@
                 
             </div>
             
-            
+            <div><button type="button" id="myButton" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+  Buscar
+</button></div>
             <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
@@ -210,5 +220,81 @@
     <!-- FIN DE FOOTER LINKS -->
 
 </body>
+<script >
 
+function mostrar_oculto()
+{
+   alert("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+}
+
+$(document).ready(function()
+{
+	var query;
+	$('#myButton').on('click', function () {
+	    var $btn = $(this).button('loading')
+	   
+	    $( "#DNI" ).prop( "checked", true );
+	    $( "#CIP" ).prop( "checked", true );
+	    $( "#GRADO" ).prop( "checked", true );
+	    $( "#ARMA" ).prop( "checked", true );
+	    $( "#NOMBRES" ).prop( "checked", true );
+	    
+	    if( $('#DNI').prop('checked') ) {
+	    	query="SELECT DNI"
+	        
+	    }
+	    if( $('#CIP').prop('checked') ) {
+	    	query=query+",CIP"
+	        
+	    }
+	    if( $('#GRADO').prop('checked') ) {
+	    	query=query+",GRADO"
+	        
+	    }
+	    if( $('#ARMA').prop('checked') ) {
+	    	query=query+",ARMA"
+	        
+	    }
+	    if( $('#NOMBRES').prop('checked') ) {
+	    	query=query+",NOMBRES"
+	        
+	    }
+	    if( $('#EDAD').prop('checked') ) {
+	    	query=query+",EDAD"
+	        
+	    }	       
+	    if( $('#SITU').prop('checked') ) {
+	    	query=query+",SITU"
+	        
+	    }
+	    if( $('#NUCLEO').prop('checked') ) {
+	    	query=query+",NUCLEO"
+	        
+	    }
+	    if( $('#GRAN_UNIDAD').prop('checked') ) {
+	    	query=query+",GRAN_UNIDAD"
+	        
+	    }
+	    if( $('#UNIDAD').prop('checked') ) {
+	    	query=query+",UNIDAD"
+	       
+	    }
+	    if( $('#GUARNICION').prop('checked') ) {
+	    	query=query+",GUARNICION"
+	        
+	    }
+	    if( $('#EMPLEO').prop('checked') ) {
+	    	query=query+",EMPLEO"
+	        
+	    }
+	    if( $('#ANTIGUEDAD').prop('checked') ) {
+	    	query=query+",ANTIGUEDAD"
+	       
+	    }
+	    
+	    alert(query);
+	    $btn.button('reset');
+	  })
+});
+</script>
 </html>
