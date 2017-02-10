@@ -43,7 +43,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Reportes</h1>
+                    <h1 class="page-header">Reporte General</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -51,49 +51,151 @@
             
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-8">
-                   
-                    <form class="form-horizontal">
+                <div class="col-lg-5">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            DATOS SEGUN CRITERIO
+                        </div>
+                        <div class="panel-body">
+                            
+                        <form class="form-horizontal">
   
-
-  <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Seleccione: </label>
-    <div class="col-sm-8">
-      <select class="selectpicker col-sm-12" multiple data-actions-box="true">
-    
-  <optgroup label="OFICIALES" >
-    <option>GRAL DIV</option>
-    <option>GRAL BRIG</option>
-    <option>CRL</option>
-    <option>TTE CRL</option>
-    <option>MY</option>
-    <option>CAP</option>
-    <option>TTE</option>
-    <option>SUB TTE</option>
-    </optgroup>
-  <optgroup label="TCOS/SSOO" >
-    <option>TCO JEF SUP</option>
-    <option>TCO JEF</option>
-    <option>TCO 1RA</option>
-    <option>TCO 2DA</option>
-    <option>TCO 3RA</option>
-    <option>SO1</option>
-    <option>SO2</option>
-    <option>SO3</option>
-    </optgroup>
-    
-</select>
-    </div>
-  </div>
+                        <div class="form-group">
+                          <label for="inputPassword3" class="col-sm-2 control-label">Seleccione: </label>
+                          <div class="col-sm-8">
+                                <select class="selectpicker col-sm-12" multiple data-actions-box="true">    
+                                    <optgroup label="OFICIALES" >
+                                        <option>GRAL DIV</option>
+                                        <option>GRAL BRIG</option>
+                                        <option>CRL</option>
+                                        <option>TTE CRL</option>
+                                        <option>MY</option>
+                                        <option>CAP</option>
+                                        <option>TTE</option>
+                                        <option>SUB TTE</option>
+                                    </optgroup>
+                                    <optgroup label="TCOS/SSOO" >
+                                        <option>TCO JEF SUP</option>
+                                        <option>TCO JEF</option>
+                                        <option>TCO 1RA</option>
+                                        <option>TCO 2DA</option>
+                                        <option>TCO 3RA</option>
+                                        <option>SO1</option>
+                                        <option>SO2</option>
+                                        <option>SO3</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
    
-        
-</form>
-                    
-                </div>
-                <!-- /.col-lg-8 -->
-                
-                <!-- /.col-lg-4 -->
+                        </form>
+                          
+                        </div>
+                        <div class="panel-footer">
+                            Panel Footer
+                        </div>
+                    </div>
+                 </div>
             </div>
+            
+            
+            <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary active" disabled >
+        <input type="checkbox" autocomplete="off" checked id="DNI"> DNI
+    </label>
+    <label class="btn btn-primary active" disabled >
+        <input type="checkbox" autocomplete="off" checked id="CIP"> CIP
+    </label>
+    <label class="btn btn-primary active" disabled>
+        <input type="checkbox" autocomplete="off" checked id="GRADO"> GRADO
+    </label>
+    <label class="btn btn-primary active" disabled>
+        <input type="checkbox" autocomplete="off" checked id="ARMA"> ARMA
+    </label>
+    <label class="btn btn-primary active" disabled>
+        <input type="checkbox" autocomplete="off" checked id="NOMBRES"> APELLIDOS Y NOMBRES
+    </label>
+    <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off" id="EDAD"> EDAD
+    </label>
+    <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off" id="SITU"> SITUACION ADTMVA
+    </label>
+</div>
+<div class="btn-group" data-toggle="buttons">
+
+    <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off" id="NUCLEO"> NUCLEO
+    </label>
+    <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off" id="GRAN_UNIDAD"> GRAN_UNIDAD
+    </label>
+    <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off" id="UNIDAD"> UNIDAD
+    </label>
+    <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off" id="GUARNICION"> GUARNICION
+    </label>
+    <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off" id="EMPLEO"> EMPLEO
+    </label>
+    <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off" id="ANTIGUEDAD"> ANTIGUEDAD
+    </label>
+
+</div>
+            
+            
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            FILTROS
+                        </div>
+                        <div class="panel-body">
+                            
+                        <form class="form-horizontal">
+  
+                        <div class="form-group">
+                          <label for="inputPassword3" class="col-sm-2 control-label">Seleccione: </label>
+                          <div class="col-sm-8">
+                                <select class="selectpicker col-sm-12" multiple data-actions-box="true">    
+                                    <optgroup label="OFICIALES" >
+                                        <option>GRAL DIV</option>
+                                        <option>GRAL BRIG</option>
+                                        <option>CRL</option>
+                                        <option>TTE CRL</option>
+                                        <option>MY</option>
+                                        <option>CAP</option>
+                                        <option>TTE</option>
+                                        <option>SUB TTE</option>
+                                    </optgroup>
+                                    <optgroup label="TCOS/SSOO" >
+                                        <option>TCO JEF SUP</option>
+                                        <option>TCO JEF</option>
+                                        <option>TCO 1RA</option>
+                                        <option>TCO 2DA</option>
+                                        <option>TCO 3RA</option>
+                                        <option>SO1</option>
+                                        <option>SO2</option>
+                                        <option>SO3</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+   
+                        </form>
+                          
+                        </div>
+                        <div class="panel-footer">
+                            OFICIALES, TCOS, SOO
+                        </div>
+                    </div>
+                 </div>
+                
+            </div>
+            
+            
             <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
