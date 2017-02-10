@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>   
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+
+</head>
+<body>
+
+<div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary active" disabled >
+        <input type="checkbox" autocomplete="off" checked id="DNI"> DNI
+    </label>
+    <label class="btn btn-primary active" disabled >
+        <input type="checkbox" autocomplete="off" checked id="CIP"> CIP
+    </label>
+    <label class="btn btn-primary active" disabled>
+        <input type="checkbox" autocomplete="off" checked id="GRADO"> GRADO
+    </label>
+    <label class="btn btn-primary active" disabled>
+        <input type="checkbox" autocomplete="off" checked id="ARMA"> ARMA
+    </label>
+    <label class="btn btn-primary active" disabled>
+        <input type="checkbox" autocomplete="off" checked id="NOMBRES"> APELLIDOS Y NOMBRES
+    </label>
+    <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off" id="EDAD"> EDAD
+    </label>
+    <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off" id="SITU"> SITUACION ADTMVA
+    </label>
+</div>
+<div class="btn-group" data-toggle="buttons">
+
+    <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off" id="NUCLEO"> NUCLEO
+    </label>
+    <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off" id="GRAN_UNIDAD"> GRAN_UNIDAD
+    </label>
+    <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off" id="UNIDAD"> UNIDAD
+    </label>
+    <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off" id="GUARNICION"> GUARNICION
+    </label>
+    <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off" id="EMPLEO"> EMPLEO
+    </label>
+    <label class="btn btn-primary">
+        <input type="checkbox" autocomplete="off" id="ANTIGUEDAD"> ANTIGUEDAD
+    </label>
+
+</div>
+<div><button type="button" id="myButton" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+  Buscar
+</button></div>
+
+</body>
+<script >
+
+function mostrar_oculto()
+{
+   alert("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+}
+
+$(document).ready(function()
+{
+	var query;
+	$('#myButton').on('click', function () {
+	    var $btn = $(this).button('loading')
+	   
+	    $( "#DNI" ).prop( "checked", true );
+	    $( "#CIP" ).prop( "checked", true );
+	    $( "#GRADO" ).prop( "checked", true );
+	    $( "#ARMA" ).prop( "checked", true );
+	    $( "#NOMBRES" ).prop( "checked", true );
+	    
+	    if( $('#DNI').prop('checked') ) {
+	    	query="SELECT DNI"
+	        
+	    }
+	    if( $('#CIP').prop('checked') ) {
+	    	query=query+",CIP"
+	        
+	    }
+	    if( $('#GRADO').prop('checked') ) {
+	    	query=query+",GRADO"
+	        
+	    }
+	    if( $('#ARMA').prop('checked') ) {
+	    	query=query+",ARMA"
+	        
+	    }
+	    if( $('#NOMBRES').prop('checked') ) {
+	    	query=query+",NOMBRES"
+	        
+	    }
+	    if( $('#EDAD').prop('checked') ) {
+	    	query=query+",EDAD"
+	        
+	    }	       
+	    if( $('#SITU').prop('checked') ) {
+	    	query=query+",SITU"
+	        
+	    }
+	    if( $('#NUCLEO').prop('checked') ) {
+	    	query=query+",NUCLEO"
+	        
+	    }
+	    if( $('#GRAN_UNIDAD').prop('checked') ) {
+	    	query=query+",GRAN_UNIDAD"
+	        
+	    }
+	    if( $('#UNIDAD').prop('checked') ) {
+	    	query=query+",UNIDAD"
+	       
+	    }
+	    if( $('#GUARNICION').prop('checked') ) {
+	    	query=query+",GUARNICION"
+	        
+	    }
+	    if( $('#EMPLEO').prop('checked') ) {
+	    	query=query+",EMPLEO"
+	        
+	    }
+	    if( $('#ANTIGUEDAD').prop('checked') ) {
+	    	query=query+",ANTIGUEDAD"
+	       
+	    }
+	    
+	    alert(query);
+	    
+	    
+	    $btn.button('reset')
+	  })
+});
+</script>
+</html>
