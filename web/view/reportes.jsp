@@ -62,49 +62,22 @@
                         <div class="panel-body">
                             
                         <form class="form-horizontal">
-  
-                        <div class="btn-group" data-toggle="buttons">
-    <label class="btn btn-primary active" disabled >
-        <input type="checkbox" autocomplete="off" checked id="DNI"> DNI
-    </label>
-    <label class="btn btn-primary active" disabled >
-        <input type="checkbox" autocomplete="off" checked id="CIP"> CIP
-    </label>
-    <label class="btn btn-primary active" disabled>
-        <input type="checkbox" autocomplete="off" checked id="GRADO"> GRADO
-    </label>
-    <label class="btn btn-primary active" disabled>
-        <input type="checkbox" autocomplete="off" checked id="ARMA"> ARMA
-    </label>
-    <label class="btn btn-primary active" disabled>
-        <input type="checkbox" autocomplete="off" checked id="NOMBRES"> APELLIDOS Y NOMBRES
-    </label>
-    <label class="btn btn-primary">
-        <input type="checkbox" autocomplete="off" id="EDAD"> EDAD
-    </label>
-    <label class="btn btn-primary">
-        <input type="checkbox" autocomplete="off" id="SITU"> SITUACION ADTMVA
-    </label>
-     <label class="btn btn-primary">
-        <input type="checkbox" autocomplete="off" id="NUCLEO"> NUCLEO
-    </label>
-    <label class="btn btn-primary">
-        <input type="checkbox" autocomplete="off" id="GRAN_UNIDAD"> GRAN_UNIDAD
-    </label>
-    <label class="btn btn-primary">
-        <input type="checkbox" autocomplete="off" id="UNIDAD"> UNIDAD
-    </label>
-    <label class="btn btn-primary">
-        <input type="checkbox" autocomplete="off" id="GUARNICION"> GUARNICION
-    </label>
-    <label class="btn btn-primary">
-        <input type="checkbox" autocomplete="off" id="EMPLEO"> EMPLEO
-    </label>
-    <label class="btn btn-primary">
-        <input type="checkbox" autocomplete="off" id="ANTIGUEDAD"> ANTIGUEDAD
-    </label>                        
+
+                            <div class="btn-group" >
+                                <input type="checkbox" autocomplete="off" checked id="DNI" disabled> DNI<br>
+            <input type="checkbox" autocomplete="off" checked id="CIP" disabled> CIP<br>
+            <input type="checkbox" autocomplete="off" checked id="GRADO" disabled> GRADO<br>
+            <input type="checkbox" autocomplete="off" checked id="ARMA" disabled> ARMA<br>
+            <input type="checkbox" autocomplete="off" checked id="NOMBRES" disabled> APELLIDOS Y NOMBRES<br>
+            <input type="checkbox" autocomplete="off" id="EDAD"> EDAD<br>
+            <input type="checkbox" autocomplete="off" id="SITU"> SITUACION ADTMVA<br>
+            <input type="checkbox" autocomplete="off" id="NUCLEO"> NUCLEO<br>
+            <input type="checkbox" autocomplete="off" id="GRAN_UNIDAD"> GRAN_UNIDAD<br>
+            <input type="checkbox" autocomplete="off" id="UNIDAD"> UNIDAD<br>
+            <input type="checkbox" autocomplete="off" id="GUARNICION"> GUARNICION<br>
+            <input type="checkbox" autocomplete="off" id="EMPLEO"> EMPLEO<br>
+            <input type="checkbox" autocomplete="off" id="ANTIGUEDAD"> ANTIGUEDAD<br>
 </div>
-   
                         </form>
                           
                         </div>
@@ -258,6 +231,12 @@
                                 </select>
                             </div>
                         </div>
+                           
+                        <label  id="unidades" class="col-sm-12">
+                                
+                        </label>
+                        
+                            
                             
                         </form>
                           
@@ -351,7 +330,7 @@ $(document).ready(function()
 	    }
 	    if( $('#UNIDAD').prop('checked') ) {
 	    	query=query+",UNIDAD"
-	       
+               
 	    }
 	    if( $('#GUARNICION').prop('checked') ) {
 	    	query=query+",GUARNICION"
@@ -369,6 +348,139 @@ $(document).ready(function()
 	    alert(query);
 	    $btn.button('reset');
 	  })
+        
+        $( "#NUCLEO" ).click(function() {
+            $("#unidades").empty();
+            if( $('#NUCLEO').prop('checked') ) {
+                $("#unidades").empty();
+	    	$( "#unidades" ).append( '<div class="form-group">'+
+                                         '<label for="inputPassword3" class="col-sm-2 control-label">Nucleo: </label>'+
+                                         '<div class="col-sm-8">'+
+                                          '<select class="btn btn-default dropdown-toggle col-sm-12 ">'+
+                                          '<option>Mustard</option>'+
+                                          '<option>Ketchup</option>'+
+                                          '<option>Relish</option>'+
+                                          '</select>'+
+                                          '</div>'+
+                                          '</div>');
+            }else{
+               $("#unidades").empty();
+               $("#UNIDAD").prop('checked', false);
+               $("#GRAN_UNIDAD").prop('checked', false);
+            }
+        });
+        $( "#GRAN_UNIDAD" ).click(function() {
+            if( $('#GRAN_UNIDAD').prop('checked') ) {
+                $("#unidades").empty();
+	    	$( "#unidades" ).append( '<div class="form-group">'+
+                                         '<label for="inputPassword3" class="col-sm-2 control-label">Nucleo: </label>'+
+                                         '<div class="col-sm-8">'+
+                                          '<select class="btn btn-default dropdown-toggle col-sm-12 ">'+
+                                          '<option>Mustard</option>'+
+                                          '<option>Ketchup</option>'+
+                                          '<option>Relish</option>'+
+                                          '</select>'+
+                                          '</div>'+
+                                          '</div>'+
+                                          '<div class="form-group">'+
+                                         '<label for="inputPassword3" class="col-sm-2 control-label">GGUU: </label>'+
+                                         '<div class="col-sm-8">'+
+                                          '<select class="btn btn-default dropdown-toggle col-sm-12 ">'+
+                                          '<option>Mustard</option>'+
+                                          '<option>Ketchup</option>'+
+                                          '<option>Relish</option>'+
+                                          '</select>'+
+                                          '</div>'+
+                                          '</div>');
+                                   $("#NUCLEO").prop('checked', true);
+            }else{
+               if( $('#NUCLEO').prop('checked') ) {
+                $("#unidades").empty();
+                $( "#unidades" ).append( '<div class="form-group">'+
+                                         '<label for="inputPassword3" class="col-sm-2 control-label">Nucleo: </label>'+
+                                         '<div class="col-sm-8">'+
+                                          '<select class="btn btn-default dropdown-toggle col-sm-12 ">'+
+                                          '<option>Mustard</option>'+
+                                          '<option>Ketchup</option>'+
+                                          '<option>Relish</option>'+
+                                          '</select>'+
+                                          '</div>'+
+                                          '</div>');
+                }
+                
+                /////
+                 if( $('#NUCLEO').prop('checked')&&$('#UNIDAD').prop('checked') ) {
+                
+                $("#UNIDAD").prop('checked', false);
+                
+                    }
+                /////
+            }
+        });
+        $( "#UNIDAD" ).click(function() {
+            if( $('#UNIDAD').prop('checked') ) {
+                $("#unidades").empty();
+	    	$( "#unidades" ).append( '<div class="form-group">'+
+                                         '<label for="inputPassword3" class="col-sm-2 control-label">Nucleo: </label>'+
+                                         '<div class="col-sm-8">'+
+                                          '<select class="btn btn-default dropdown-toggle col-sm-12 ">'+
+                                          '<option>Mustard</option>'+
+                                          '<option>Ketchup</option>'+
+                                          '<option>Relish</option>'+
+                                          '</select>'+
+                                          '</div>'+
+                                          '</div>'+
+                                          '<div class="form-group">'+
+                                         '<label for="inputPassword3" class="col-sm-2 control-label">GGUU: </label>'+
+                                         '<div class="col-sm-8">'+
+                                          '<select class="btn btn-default dropdown-toggle col-sm-12 ">'+
+                                          '<option>Mustard</option>'+
+                                          '<option>Ketchup</option>'+
+                                          '<option>Relish</option>'+
+                                          '</select>'+
+                                          '</div>'+
+                                          '</div>'+'<div class="form-group">'+
+                                         '<label for="inputPassword3" class="col-sm-2 control-label">Unidad: </label>'+
+                                         '<div class="col-sm-8">'+
+                                          '<select class="btn btn-default dropdown-toggle col-sm-12 ">'+
+                                          '<option>Mustard</option>'+
+                                          '<option>Ketchup</option>'+
+                                          '<option>Relish</option>'+
+                                          '</select>'+
+                                          '</div>'+
+                                          '</div>');
+                  $("#NUCLEO").prop('checked', true);
+                  $("#GRAN_UNIDAD").prop('checked', true);
+            }else{
+               
+               if( $('#NUCLEO').prop('checked')&&$('#GRAN_UNIDAD').prop('checked') ) {
+                $("#unidades").empty();
+                $( "#unidades" ).append( '<div class="form-group">'+
+                                         '<label for="inputPassword3" class="col-sm-2 control-label">Nucleo: </label>'+
+                                         '<div class="col-sm-8">'+
+                                          '<select class="btn btn-default dropdown-toggle col-sm-12 ">'+
+                                          '<option>Mustard</option>'+
+                                          '<option>Ketchup</option>'+
+                                          '<option>Relish</option>'+
+                                          '</select>'+
+                                          '</div>'+
+                                          '</div>'+
+                                          '<div class="form-group">'+
+                                         '<label for="inputPassword3" class="col-sm-2 control-label">GGUU: </label>'+
+                                         '<div class="col-sm-8">'+
+                                          '<select class="btn btn-default dropdown-toggle col-sm-12 ">'+
+                                          '<option>Mustard</option>'+
+                                          '<option>Ketchup</option>'+
+                                          '<option>Relish</option>'+
+                                          '</select>'+
+                                          '</div>'+
+                                          '</div>');
+        }
+            }
+        });
+        
+        
+          
           
         $("select#Tpersona").on("change", function(value){
                 var This      = $(this);
