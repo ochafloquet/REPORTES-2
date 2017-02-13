@@ -1,9 +1,15 @@
+<%@page import="Controlador.Usuario_Controller"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    Usuario_Controller us=new Usuario_Controller();
+    String nombre=(String)session.getAttribute("UserLogin");
+    if(nombre==null){
+        response.sendRedirect("/Proyecto2/");
+    }else{
+%>
 <!DOCTYPE html>
 <html>
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -580,7 +586,9 @@
     <jsp:include page="../view/front_end/footer_links.jsp" flush="true" />
     
     <!-- FIN DE FOOTER LINKS -->
-
 </body>
 
 </html>
+<%
+    }
+%>

@@ -45,7 +45,7 @@ public class Usuario_Controller {
         Conexion c=new Conexion();
         Connection  con=c.getConnection();
         Statement st=con.createStatement();
-        ResultSet rs=st.executeQuery("SELECT VDATGRLS_NOMBRES ||', ' || VDATGRLS_APELLPAT ||' '|| VDATGRLS_APELLMAT AS NOMBRES FROM\n" +
+        ResultSet rs=st.executeQuery("SELECT VDATGRLS_APELLPAT ||' ' || VDATGRLS_APELLMAT ||', '|| VDATGRLS_APELLNOMBRES AS NOMBRES FROM\n" +
         "PERSONAL.PERSONAL_DATGRLS PDR, PERSONAL.PERSONAL_MILITARES PM WHERE PDR.VDATGRLS_DNI=PM.VMILITARES_DNI AND VMILITARES_NROADMIN='"+nro_admin+"'");
         
         while(rs.next()){            

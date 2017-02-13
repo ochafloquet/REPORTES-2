@@ -12,7 +12,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="home.jsp"><b>DETEL - COPERE</b></a>
+                <a class="navbar-brand" href="home.jsp"><b>DETEL - COPERE / <%= session.getAttribute( "UserLogin" )%></b></a>
             </div>
             <!-- /.navbar-header -->
 

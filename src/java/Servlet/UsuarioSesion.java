@@ -52,7 +52,7 @@ public class UsuarioSesion extends HttpServlet {
             PrintWriter out = response.getWriter();  
             response.setContentType("text/html");  
             out.println("<script type=\"text/javascript\">");  
-            out.println("alert('# CIP y/o Password Incorrecto ....!!');");  
+            out.println("alert('Usuario Incorrecto ....!!');");  
             out.println("</script>");
               
           }           
