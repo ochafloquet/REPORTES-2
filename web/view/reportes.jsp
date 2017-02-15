@@ -4,6 +4,10 @@
     Author     : SOPORTE
 --%>
 
+<%@page import="java.util.LinkedList"%>
+<%@page import="Controlador.Reporte_Controller"%>
+<%@page import="Bean.ReporteBean"%>
+<%@page import="Bean.ReporteBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -277,6 +281,12 @@ function mostrar_oculto()
    alert("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 }
 
+function elegir_opcion(combo) {
+$tipo = jQuery(combo).val();
+alert($tipo);
+}
+
+
 $(document).ready(function()
 {
 	var query;
@@ -356,10 +366,15 @@ $(document).ready(function()
 	    	$( "#unidades" ).append( '<div class="form-group">'+
                                          '<label for="inputPassword3" class="col-sm-2 control-label">Nucleo: </label>'+
                                          '<div class="col-sm-8">'+
-                                          '<select class="btn btn-default dropdown-toggle col-sm-12 ">'+
-                                          '<option>Mustard</option>'+
-                                          '<option>Ketchup</option>'+
-                                          '<option>Relish</option>'+
+                                          '<select id="nucleo" name="nucleo" onchange="elegir_opcion(this);" class="btn btn-default dropdown-toggle col-sm-12 ">'+
+                                          '<%
+                                              LinkedList<ReporteBean> lista = Reporte_Controller.getNucleos();
+                                              for(int i=0;i<lista.size();i++){
+                                           %>'+       
+                                                '<option value="<%=lista.get(i).getNucleo_cod() %>"><%=lista.get(i).getNucleo_desc() %></option>'+
+                                                
+                                          '<% } %>'+
+                                          
                                           '</select>'+
                                           '</div>'+
                                           '</div>');
