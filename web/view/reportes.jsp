@@ -99,7 +99,7 @@
                         </div>
                         <div class="panel-body">
                             
-                        <form class="form-horizontal">
+                        <form class="form-horizontal" id="formu" name="formu">
                         <div class="form-group">
                         <label for="inputPassword3" class="col-sm-2 control-label">Tipo Persona: </label>
                         <div class="col-sm-8">
@@ -109,6 +109,8 @@
                         </select>
                         </div>  
                         </div>   
+                        
+                            <input type="text" name="favorito">    
                             
                         <div class="form-group">
                           <label for="inputPassword3" class="col-sm-2 control-label">Grado: </label>
@@ -235,7 +237,8 @@
                                 </select>
                             </div>
                         </div>
-                           
+                         
+                            
                         <label  id="unidades" class="col-sm-12">
                                 
                         </label>
@@ -282,8 +285,13 @@ function mostrar_oculto()
 }
 
 function elegir_opcion(combo) {
-$tipo = jQuery(combo).val();
-alert($tipo);
+//$tipo = jQuery(combo).val();
+//alert($tipo);
+var cod=document.getElementById("nucleo").value;
+//txt=document.formu.nucleo.options[document.formu.nucleo.selectedIndex].text;
+            document.formu.favorito.value=cod;
+            
+           
 }
 
 
@@ -390,10 +398,15 @@ $(document).ready(function()
 	    	$( "#unidades" ).append( '<div class="form-group">'+
                                          '<label for="inputPassword3" class="col-sm-2 control-label">Nucleo: </label>'+
                                          '<div class="col-sm-8">'+
-                                          '<select class="btn btn-default dropdown-toggle col-sm-12 ">'+
-                                          '<option>Mustard</option>'+
-                                          '<option>Ketchup</option>'+
-                                          '<option>Relish</option>'+
+                                          '<select id="nucleo" name="nucleo" onchange="elegir_opcion(this);" class="btn btn-default dropdown-toggle col-sm-12 ">'+
+                                          
+                                          '<%                                              
+                                              for(int i=0;i<lista.size();i++){
+                                           %>'+       
+                                               '<option value="<%=lista.get(i).getNucleo_cod() %>"><%=lista.get(i).getNucleo_desc() %></option>'+   
+                                              
+                                           '<% } %>'+
+                                          
                                           '</select>'+
                                           '</div>'+
                                           '</div>'+
