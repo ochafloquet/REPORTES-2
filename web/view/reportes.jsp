@@ -110,8 +110,6 @@
                         </div>  
                         </div>   
                         
-                            <input type="text" name="favorito">    
-                            
                         <div class="form-group">
                           <label for="inputPassword3" class="col-sm-2 control-label">Grado: </label>
                           <div class="col-sm-8">
@@ -289,9 +287,9 @@ function elegir_opcion(combo) {
 //alert($tipo);
 var cod=document.getElementById("nucleo").value;
 //txt=document.formu.nucleo.options[document.formu.nucleo.selectedIndex].text;
-            document.formu.favorito.value=cod;
-            
-           
+//document.formu.favorito.value=cod;
+alert(cod);
+          
 }
 
 
@@ -413,10 +411,16 @@ $(document).ready(function()
                                           '<div class="form-group">'+
                                          '<label for="inputPassword3" class="col-sm-2 control-label">GGUU: </label>'+
                                          '<div class="col-sm-8">'+
-                                          '<select class="btn btn-default dropdown-toggle col-sm-12 ">'+
-                                          '<option>Mustard</option>'+
-                                          '<option>Ketchup</option>'+
-                                          '<option>Relish</option>'+
+                                          '<select name="gguu" id="gguu" class="btn btn-default dropdown-toggle col-sm-12 ">'+
+                                          '<%
+                                             
+                                              LinkedList<ReporteBean> lista2 = Reporte_Controller.getGGUU("47");
+                                              for(int i=0;i<lista2.size();i++){
+                                           %>'+       
+                                                '<option value="<%=lista2.get(i).getGguu_cod() %>"><%=lista2.get(i).getGguu_desc() %></option>'+
+                                                
+                                          '<% } %>'+
+                                          
                                           '</select>'+
                                           '</div>'+
                                           '</div>');
@@ -427,10 +431,15 @@ $(document).ready(function()
                 $( "#unidades" ).append( '<div class="form-group">'+
                                          '<label for="inputPassword3" class="col-sm-2 control-label">Nucleo: </label>'+
                                          '<div class="col-sm-8">'+
-                                          '<select class="btn btn-default dropdown-toggle col-sm-12 ">'+
-                                          '<option>Mustard</option>'+
-                                          '<option>Ketchup</option>'+
-                                          '<option>Relish</option>'+
+                                          '<select id="nucleo" name="nucleo" onchange="elegir_opcion(this);" class="btn btn-default dropdown-toggle col-sm-12 ">'+
+                                          
+                                          '<%                                              
+                                              for(int i=0;i<lista.size();i++){
+                                           %>'+       
+                                               '<option value="<%=lista.get(i).getNucleo_cod() %>"><%=lista.get(i).getNucleo_desc() %></option>'+   
+                                              
+                                           '<% } %>'+
+                                          
                                           '</select>'+
                                           '</div>'+
                                           '</div>');
@@ -451,29 +460,44 @@ $(document).ready(function()
 	    	$( "#unidades" ).append( '<div class="form-group">'+
                                          '<label for="inputPassword3" class="col-sm-2 control-label">Nucleo: </label>'+
                                          '<div class="col-sm-8">'+
-                                          '<select class="btn btn-default dropdown-toggle col-sm-12 ">'+
-                                          '<option>Mustard</option>'+
-                                          '<option>Ketchup</option>'+
-                                          '<option>Relish</option>'+
+                                         '<select id="nucleo" name="nucleo" onchange="elegir_opcion(this);" class="btn btn-default dropdown-toggle col-sm-12 ">'+
+                                          
+                                          '<%                                              
+                                              for(int i=0;i<lista.size();i++){
+                                           %>'+       
+                                               '<option value="<%=lista.get(i).getNucleo_cod() %>"><%=lista.get(i).getNucleo_desc() %></option>'+   
+                                              
+                                           '<% } %>'+
+                                          
                                           '</select>'+
                                           '</div>'+
                                           '</div>'+
                                           '<div class="form-group">'+
                                          '<label for="inputPassword3" class="col-sm-2 control-label">GGUU: </label>'+
                                          '<div class="col-sm-8">'+
-                                          '<select class="btn btn-default dropdown-toggle col-sm-12 ">'+
-                                          '<option>Mustard</option>'+
-                                          '<option>Ketchup</option>'+
-                                          '<option>Relish</option>'+
+                                          '<select name="gguu" id="gguu" class="btn btn-default dropdown-toggle col-sm-12 ">'+
+                                          '<%                                                                                          
+                                              for(int i=0;i<lista2.size();i++){
+                                           %>'+       
+                                                '<option value="<%=lista2.get(i).getGguu_cod() %>"><%=lista2.get(i).getGguu_desc() %></option>'+
+                                                
+                                          '<% } %>'+
+                                          
                                           '</select>'+
                                           '</div>'+
                                           '</div>'+'<div class="form-group">'+
                                          '<label for="inputPassword3" class="col-sm-2 control-label">Unidad: </label>'+
                                          '<div class="col-sm-8">'+
                                           '<select class="btn btn-default dropdown-toggle col-sm-12 ">'+
-                                          '<option>Mustard</option>'+
-                                          '<option>Ketchup</option>'+
-                                          '<option>Relish</option>'+
+                                          '<%
+                                             
+                                              LinkedList<ReporteBean> lista3 = Reporte_Controller.getUnidad("0798");
+                                              for(int i=0;i<lista3.size();i++){
+                                           %>'+       
+                                                '<option value="<%=lista3.get(i).getUnidad_cod() %>"><%=lista3.get(i).getUnidad_desc() %></option>'+
+                                                
+                                          '<% } %>'+
+                                          
                                           '</select>'+
                                           '</div>'+
                                           '</div>');
@@ -486,20 +510,28 @@ $(document).ready(function()
                 $( "#unidades" ).append( '<div class="form-group">'+
                                          '<label for="inputPassword3" class="col-sm-2 control-label">Nucleo: </label>'+
                                          '<div class="col-sm-8">'+
-                                          '<select class="btn btn-default dropdown-toggle col-sm-12 ">'+
-                                          '<option>Mustard</option>'+
-                                          '<option>Ketchup</option>'+
-                                          '<option>Relish</option>'+
+                                          '<select id="nucleo" name="nucleo" onchange="elegir_opcion(this);" class="btn btn-default dropdown-toggle col-sm-12 ">'+
+                                          
+                                          '<%                                              
+                                              for(int i=0;i<lista.size();i++){
+                                           %>'+       
+                                               '<option value="<%=lista.get(i).getNucleo_cod() %>"><%=lista.get(i).getNucleo_desc() %></option>'+   
+                                              
+                                           '<% } %>'+
+                                          
                                           '</select>'+
                                           '</div>'+
                                           '</div>'+
                                           '<div class="form-group">'+
                                          '<label for="inputPassword3" class="col-sm-2 control-label">GGUU: </label>'+
                                          '<div class="col-sm-8">'+
-                                          '<select class="btn btn-default dropdown-toggle col-sm-12 ">'+
-                                          '<option>Mustard</option>'+
-                                          '<option>Ketchup</option>'+
-                                          '<option>Relish</option>'+
+                                          '<select name="gguu" id="gguu" class="btn btn-default dropdown-toggle col-sm-12 ">'+
+                                          '<%                                                                                          
+                                              for(int i=0;i<lista2.size();i++){
+                                           %>'+       
+                                                '<option value="<%=lista2.get(i).getGguu_cod() %>"><%=lista2.get(i).getGguu_desc() %></option>'+
+                                                
+                                          '<% } %>'+                                          
                                           '</select>'+
                                           '</div>'+
                                           '</div>');
