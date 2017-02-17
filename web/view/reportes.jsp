@@ -114,26 +114,13 @@
                           <label for="inputPassword3" class="col-sm-2 control-label">Grado: </label>
                           <div class="col-sm-8">
                                 <select id="Grado"class="selectpicker col-sm-12" multiple data-actions-box="true">    
-                                    <optgroup label="OFICIALES" >
-                                        <option value="01">GRAL DIV</option>
-                                        <option value="02">GRAL BRIG</option>
-                                        <option value="03">CRL</option>
-                                        <option value="04">TTE CRL</option>
-                                        <option value="05">MY</option>
-                                        <option value="06">CAP</option>
-                                        <option value="07">TTE</option>
-                                        <option value="08">SUB TTE</option>
-                                    </optgroup>
-                                    <optgroup label="TCOS/SSOO" >
-                                        <option value="09">TCO JEF SUP</option>
-                                        <option value="10">TCO JEF</option>
-                                        <option value="11">TCO 1RA</option>
-                                        <option value="12">TCO 2DA</option>
-                                        <option value="13">TCO 3RA</option>
-                                        <option value="14">SO1</option>
-                                        <option value="15">SO2</option>
-                                        <option value="16">SO3</option>
-                                    </optgroup>
+                                    
+                                    <%
+                                        LinkedList<ReporteBean> lista4 = Reporte_Controller.getGrados();
+                                              for(int i=0;i<lista4.size();i++){
+                                    %>
+                                        <option value="<%=lista4.get(i).getGrado_cod() %>"><%=lista4.get(i).getGrado_desc() %></option>
+                                    <% } %>    
                                 </select>
                             </div>
                         </div>
@@ -142,97 +129,15 @@
                           <label for="inputPassword3" class="col-sm-2 control-label">Arma: </label>
                           <div class="col-sm-8">
                                 <select id="Arma" class="selectpicker col-sm-12" multiple data-actions-box="true">    
-                                    <optgroup label="OFICIALES" >
-                                        <option value="001">	INF	</option>
-                                        <option value="002">	ART	</option>
-                                        <option value="003">	CAB	</option>
-                                        <option value="004">	ING	</option>
-                                        <option value="005">	COM	</option>
-                                        <option value="006">	M G	</option>
-<option value="007">	INT	</option>
-<option value="008">	S MED	</option>
-<option value="009">	S ODO	</option>
-<option value="010">	S FAR	</option>
-<option value="011">	S VET	</option>
-<option value="012">	S J E	</option>
-<option value="014">	S PSIC	</option>
-<option value="022">	PEF	</option>
-<option value="025">	SCYTE	</option>   
-                                    </optgroup>
-                                    <optgroup label="TCOS/SSOO" >
-                                        <option value="300">	A I I	</option>
-<option value="302">	A I O	</option>
-<option value="303">	A I E	</option>
-<option value="304">	A I C	</option>
-<option value="305">	A C I	</option>
-<option value="306">	MUS MIL	</option>
-<option value="307">	CHOF MIL	</option>
-<option value="308">	M A	</option>
-<option value="309">	ENF MIL	</option>
-<option value="310">	E V M	</option>
-<option value="311">	M V R	</option>
-<option value="312">	M E A	</option>
-<option value="313">	M E I	</option>
-<option value="314">	M V O	</option>
-<option value="315">	M C E	</option>
-<option value="316">	M MOT	</option>
-<option value="317">	O E I	</option>
-<option value="318">	O C	</option>
-<option value="319">	P M	</option>
-<option value="320">	TIR COH	</option>
-<option value="321">	A E M	</option>
-<option value="322">	A ABSTO	</option>
-<option value="323">	A BLIND	</option>
-<option value="324">	MAE	</option>
-<option value="325">	I M	</option>
-<option value="326">	MEAE	</option>
-<option value="327">	A INFO	</option>
-<option value="329">	S PLAN	</option>
-<option value="330">	E M SCHI	</option>
-<option value="331">	A INF	</option>
-<option value="332">	A ART	</option>
-<option value="333">	A CAB	</option>
-<option value="334">	AUX ING	</option>
-<option value="335">	OEAAe	</option>
-<option value="336">	A E M I	</option>
-<option value="337">	O C E E	</option>
-<option value="338">	M V A	</option>
-<option value="339">	M A M	</option>
-<option value="340">	M S A E	</option>
-<option value="341">	O A S I	</option>
-<option value="342">	MCSA	</option>
-<option value="343">	ACCOM	</option>
-<option value="344">	M E E	</option>
-<option value="345">	AUX COM	</option>
-<option value="346">	AMSI	</option>
-<option value="347">	T/FFEE	</option>
-<option value="349">	SSGG	</option>
-<option value="361">	T/INF	</option>
-<option value="362">	T/CAB	</option>
-<option value="363">	T/BLIND	</option>
-<option value="364">	T/ART	</option>
-<option value="365">	T/ING	</option>
-<option value="366">	T/COM	</option>
-<option value="367">	T/CCOM	</option>
-<option value="368">	T/MEC AUT	</option>
-<option value="369">	T/MEC AERO	</option>
-<option value="370">	T/ADM	</option>
-<option value="371">	T/MEP	</option>
-<option value="372">	T/MAM	</option>
-<option value="373">	T/ENF MIL	</option>
-<option value="374">	T/MUS MIL	</option>
-<option value="376">	T/MECTEL	</option>
-<option value="377">	T/MEC AVIO	</option>
-<option value="378">	T/AGROP	</option>
-<option value="379">	T/GEOM	</option>
-<option value="380">	T/GASTRO	</option>
-<option value="381">	T/CHOF MIL	</option>
-<option value="383">	T/OMFB	</option>
-<option value="384">	TRA/IDIOMAS	</option>
-<option value="400">	CART	</option>
-
-                                    </optgroup>
-                                </select>
+                                     
+                                     <%
+                                        LinkedList<ReporteBean> lista5 = Reporte_Controller.getArmas();
+                                              for(int i=0;i<lista5.size();i++){
+                                    %>
+                                        <option value="<%=lista5.get(i).getArma_cod() %>"><%=lista5.get(i).getArma_desc() %></option>
+                                    <% } %>   
+                                    
+                                  </select>
                             </div>
                         </div>
                          

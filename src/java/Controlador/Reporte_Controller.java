@@ -102,15 +102,72 @@ public class Reporte_Controller {
     }
     
     
+     public static LinkedList<ReporteBean> getGrados()
+   {
+      LinkedList<ReporteBean> listaGrados=new LinkedList<ReporteBean>();
+      try
+      {
+        Conexion c=new Conexion();
+        Connection  con=c.getConnection();
+        Statement st=con.createStatement();
+        ResultSet rs=st.executeQuery("SELECT VGRADOS_CODIGO,VGRADOS_DESCOR FROM PERSONAL.PERSONAL_GRADOS WHERE VGRADOS_CODIGO IN('000','001','002','003','004','005','006','007')\n" +
+        "UNION\n" +
+        "SELECT VGRADOS_CODIGO, VGRADOS_DESCOR FROM PERSONAL.PERSONAL_GRADOS WHERE VGRADOS_CODIGO IN('212','213','214','204','203','202','201','200')\n" +
+        "ORDER BY 1 ASC");
+         while (rs.next())
+         {
+            ReporteBean grado = new ReporteBean();
+            grado.setGrado_cod(rs.getString(1));
+            grado.setGrado_desc(rs.getString(2));
+            listaGrados.add(grado);
+         }
+         rs.close();
+         st.close();         
+      }
+      catch (Exception e)
+      {
+         e.printStackTrace();
+      }
+      return listaGrados;
+   }
+    
+     
+     
+      public static LinkedList<ReporteBean> getArmas()
+   {
+      LinkedList<ReporteBean> listaArmas=new LinkedList<ReporteBean>();
+      try
+      {
+        Conexion c=new Conexion();
+        Connection  con=c.getConnection();
+        Statement st=con.createStatement();
+        ResultSet rs=st.executeQuery("SELECT VARMAS_CODIGO,VARMAS_DESCOR FROM PERSONAL.PERSONAL_ARMAS\n" +
+        "WHERE VARMAS_CODIGO NOT IN('999','000') ORDER BY VARMAS_CODIGO ASC ");
+         while (rs.next())
+         {
+            ReporteBean arma = new ReporteBean();
+            arma.setArma_cod(rs.getString(1));
+            arma.setArma_desc(rs.getString(2));
+            listaArmas.add(arma);
+         }
+         rs.close();
+         st.close();         
+      }
+      catch (Exception e)
+      {
+         e.printStackTrace();
+      }
+      return listaArmas;
+   }
     
     public static void main(String[] args) throws SQLException { 
        Reporte_Controller v=new Reporte_Controller();        
-       LinkedList<ReporteBean> lista = Reporte_Controller.getUnidad("0797");
+       LinkedList<ReporteBean> lista = Reporte_Controller.getGrados();
         for (int i=0;i<lista.size();i++)
         {
             System.out.println("<tr>");
-           System.out.println("<td>"+lista.get(i).getUnidad_cod()+"</td>");
-           System.out.println("<td>"+lista.get(i).getUnidad_desc()+"</td>");
+           System.out.println("<td>"+lista.get(i).getGrado_cod()+"</td>");
+           System.out.println("<td>"+lista.get(i).getGrado_desc()+"</td>");
            System.out.println("</tr>");
         }
         

@@ -17,8 +17,14 @@ String gguu_desc;
 String unidad_cod;
 String unidad_desc;
 
+String grado_cod;
+String grado_desc;
 
-public ReporteBean(String nucleo_cod,String nucleo_desc,String gguu_cod,String gguu_desc,String unidad_cod,String unidad_desc){
+String arma_cod;
+String arma_desc;
+
+
+public ReporteBean(String nucleo_cod,String nucleo_desc,String gguu_cod,String gguu_desc,String unidad_cod,String unidad_desc,String grado_cod,String grado_desc,String arma_cod,String arma_desc){
     this.nucleo_cod=nucleo_cod;
     this.nucleo_desc=nucleo_desc;
     
@@ -27,6 +33,12 @@ public ReporteBean(String nucleo_cod,String nucleo_desc,String gguu_cod,String g
     
     this.unidad_cod=unidad_cod;
     this.unidad_desc=unidad_desc;
+    
+    this.grado_cod=grado_cod;
+    this.grado_desc=grado_desc;
+    
+    this.arma_cod=arma_cod;
+    this.arma_desc=arma_desc;
     
 }
 
@@ -81,10 +93,42 @@ public ReporteBean(){
     public void setUnidad_desc(String unidad_desc) {
         this.unidad_desc = unidad_desc;
     }
+  
 
-   
+    public String getGrado_cod() {
+        return grado_cod;
+    }
+
+    public void setGrado_cod(String grado_cod) {
+        this.grado_cod = grado_cod;
+    }
+
+    public String getGrado_desc() {
+        return grado_desc;
+    }
+
+    public void setGrado_desc(String grado_desc) {
+        this.grado_desc = grado_desc;
+    }
+
+    public String getArma_cod() {
+        return arma_cod;
+    }
+
+    public void setArma_cod(String arma_cod) {
+        this.arma_cod = arma_cod;
+    }
+
+    public String getArma_desc() {
+        return arma_desc;
+    }
+
+    public void setArma_desc(String arma_desc) {
+        this.arma_desc = arma_desc;
+    }
     
-
+    
+    
 
 
 }
